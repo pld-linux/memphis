@@ -14,6 +14,7 @@ BuildRequires:	cairo-devel >= 1.4.0
 BuildRequires:	expat-devel
 BuildRequires:	glib2-devel >= 1:2.16.0
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
