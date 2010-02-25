@@ -28,7 +28,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libmemphis
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	cairo-devel >= 1.4.0
-Requires:	glib2-devel >= 2:2.16.0
+Requires:	glib2-devel >= 1:2.16.0
 
 %description devel
 Header files for libmemphis library.
