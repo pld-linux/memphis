@@ -1,12 +1,12 @@
 Summary:	Map renderer for OpenStreetMap data
 Summary(pl.UTF-8):	Renderer map dla danych OpenStreetMap
 Name:		memphis
-Version:	0.2.0
+Version:	0.2.3
 Release:	1
 License:	LGPL v2.1
 Group:		X11/Libraries
 Source0:	http://wenner.ch/files/public/mirror/memphis/%{name}-%{version}.tar.gz
-# Source0-md5:	9b865513bc24f3ca8e243a8d21cf09d9
+# Source0-md5:	dbed61f37d07801c1f660c0b5a5d81bc
 URL:		http://trac.openstreetmap.ch/trac/memphis/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake
@@ -73,6 +73,7 @@ Dokumentacja API biblioteki libmemphis.
 %{__autoheader}
 %{__automake}
 %configure \
+	--disable-silent-rules \
 	--enable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
@@ -95,6 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libmemphis-0.2.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libmemphis-0.2.so.0
 %{_libdir}/girepository-1.0/Memphis-0.2.typelib
+%{_datadir}/memphis
 
 %files devel
 %defattr(644,root,root,755)
