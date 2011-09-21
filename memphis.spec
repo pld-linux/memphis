@@ -2,7 +2,7 @@ Summary:	Map renderer for OpenStreetMap data
 Summary(pl.UTF-8):	Renderer map dla danych OpenStreetMap
 Name:		memphis
 Version:	0.2.3
-Release:	2
+Release:	3
 License:	LGPL v2.1
 Group:		X11/Libraries
 Source0:	http://wenner.ch/files/public/mirror/memphis/%{name}-%{version}.tar.gz
@@ -84,6 +84,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -101,7 +103,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libmemphis-0.2.so
-%{_libdir}/libmemphis-0.2.la
 %{_includedir}/libmemphis-0.2
 %{_pkgconfigdir}/memphis-0.2.pc
 %{_datadir}/gir-1.0/Memphis-0.2.gir
