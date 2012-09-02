@@ -137,6 +137,6 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with vala}
 %files -n vala-memphis
 %defattr(644,root,root,755)
-%{_datadir}/vala/vapi/memphis-2.0.deps
-%{_datadir}/vala/vapi/memphis-2.0.vapi
+%{_datadir}/vala/vapi/memphis-0.2.deps
+%{_datadir}/vala/vapi/memphis-0.2.vapi
 %endif
