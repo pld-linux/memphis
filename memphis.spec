@@ -1,12 +1,12 @@
 #
 # Conditional build:
-%bcond_with	vala	# Vala binding
+%bcond_without	vala	# Vala binding
 #
 Summary:	Map renderer for OpenStreetMap data
 Summary(pl.UTF-8):	Renderer map dla danych OpenStreetMap
 Name:		memphis
 Version:	0.2.3
-Release:	4
+Release:	5
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://wenner.ch/files/public/mirror/memphis/%{name}-%{version}.tar.gz
