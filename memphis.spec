@@ -1,10 +1,14 @@
+#
+# Conditional build:
+%bcond_with	vala	# Vala binding
+#
 Summary:	Map renderer for OpenStreetMap data
 Summary(pl.UTF-8):	Renderer map dla danych OpenStreetMap
 Name:		memphis
 Version:	0.2.3
 Release:	4
-License:	LGPL v2.1
-Group:		X11/Libraries
+License:	LGPL v2.1+
+Group:		Libraries
 Source0:	http://wenner.ch/files/public/mirror/memphis/%{name}-%{version}.tar.gz
 # Source0-md5:	dbed61f37d07801c1f660c0b5a5d81bc
 URL:		http://trac.openstreetmap.ch/trac/memphis/
@@ -17,6 +21,7 @@ BuildRequires:	gobject-introspection-devel >= 0.6.7
 BuildRequires:	gtk-doc >= 1.12
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+%{?with_vala:BuildRequires:	vala >= 0.8.0}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -63,6 +68,19 @@ libmemphis library API documentation.
 %description apidocs -l pl.UTF-8
 Dokumentacja API biblioteki libmemphis.
 
+%package -n vala-memphis
+Summary:	libmemphis API for Vala language
+Summary(pl.UTF-8):	API libmemphis dla języka Vala
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+Requires:	vala >= 0.8.0
+
+%description -n vala-memphis
+libmemphis API for Vala language.
+
+%description -n vala-memphis -l pl.UTF-8
+API libmemphis dla języka Vala.
+
 %prep
 %setup -q
 
@@ -75,6 +93,7 @@ Dokumentacja API biblioteki libmemphis.
 %configure \
 	--disable-silent-rules \
 	--enable-gtk-doc \
+	%{?with_vala:--enable-vala} \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
@@ -114,3 +133,10 @@ rm -rf $RPM_BUILD_ROOT
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/libmemphis
+
+%if %{with vala}
+%files -n vala-memphis
+%defattr(644,root,root,755)
+%{_datadir}/vala/vapi/memphis-2.0.deps
+%{_datadir}/vala/vapi/memphis-2.0.vapi
+%endif
