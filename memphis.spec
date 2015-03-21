@@ -6,7 +6,7 @@ Summary:	Map renderer for OpenStreetMap data
 Summary(pl.UTF-8):	Renderer map dla danych OpenStreetMap
 Name:		memphis
 Version:	0.2.3
-Release:	6
+Release:	7
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://wenner.ch/files/public/mirror/memphis/%{name}-%{version}.tar.gz
