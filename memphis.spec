@@ -87,6 +87,7 @@ API libmemphis dla języka Vala.
 %setup -q
 
 %build
+%{__gtkdocize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
